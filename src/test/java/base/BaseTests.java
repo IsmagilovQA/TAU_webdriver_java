@@ -16,15 +16,13 @@ public class BaseTests {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
-        //driver.manage().window().setSize(new Dimension(375, 812));
 
-        List<WebElement> links = driver.findElements(By.tagName("a"));
-        System.out.println(links.size());
+        driver.findElement(By.linkText("Shifting Content")).click();
+        driver.findElement(By.linkText("Example 1: Menu Element")).click();
+        List<WebElement> menuItems = driver.findElements(By.xpath("//div[@id='content']/div/ul//a")); // my version
+        //List<WebElement> menuItems = driver.findElements(By.tagName("li")); // course version
+        System.out.println("Number of menu items: " + menuItems.size());
 
-        WebElement inputsLink = driver.findElement(By.linkText("Inputs"));
-        inputsLink.click();
-
-        System.out.println(driver.getTitle());
         driver.quit();
     }
 
