@@ -24,6 +24,7 @@ public class HoversPage {
         return new FigureCaption(figure.findElement(boxCaption));
     }
 
+
     public class FigureCaption {
 
         private WebElement caption;
