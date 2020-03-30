@@ -26,6 +26,11 @@ public class HomePage {
         return new ForgotpasswordPage(driver);
     }
 
+    public HoversPage clickHovers() {
+        clickLink("Hovers");
+        return new HoversPage(driver);
+    }
+
    //method helper
     private void clickLink(String linkText) {
         driver.findElement(By.linkText(linkText)).click();
