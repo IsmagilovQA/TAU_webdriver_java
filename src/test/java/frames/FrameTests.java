@@ -2,8 +2,7 @@ package frames;
 
 import base.BaseTests;
 import org.testng.annotations.Test;
-import pages.FramePage;
-import pages.NestedFramePage;
+import pages.NestedFramesPage;
 import pages.WysiwygEditorPage;
 
 import static org.testng.Assert.assertEquals;
@@ -25,15 +24,9 @@ public class FrameTests extends BaseTests {
     }
 
     @Test
-    public void switchingBetweenFrames_MyVersion() {
-        FramePage framePage = homePage.clickFrame();
-        NestedFramePage nestedFramePage = homePage.clickNestedFrame();
-        nestedFramePage.switchToFrame("frame-top");
-        nestedFramePage.switchToFrame("frame-left");
-        assertEquals(nestedFramePage.getFrameText(), "LEFT", "text is incorrect");
-        nestedFramePage.switchToParentFrame();
-        nestedFramePage.switchToParentFrame();
-        nestedFramePage.switchToFrame("frame-bottom");
-        assertEquals(nestedFramePage.getFrameText(), "BOTTOM", "text is incorrect");
+    public void testFrameText() {
+        NestedFramesPage nestedFramesPage = homePage.clickFramesPage().clickNestedFrames();
+        assertEquals(nestedFramesPage.getLeftFrameText(), "LEFT", "Left frame text incorrect");
+        assertEquals(nestedFramesPage.getBottomFrameText(), "BOTTOM", "Bottom frame text incorrect");
     }
 }

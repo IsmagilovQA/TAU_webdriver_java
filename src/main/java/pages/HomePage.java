@@ -61,14 +61,9 @@ public class HomePage {
         return new WysiwygEditorPage(driver);
     }
 
-    public FramePage clickFrame() {
+    public FramesPage clickFramesPage() {
         clickLink("Frames");
-        return new FramePage(driver);
-    }
-
-    public NestedFramePage clickNestedFrame() {
-        clickLink("Nested Frames");
-        return new NestedFramePage(driver);
+        return new FramesPage(driver);
     }
 
    //method helper
