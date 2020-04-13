@@ -56,6 +56,21 @@ public class HomePage {
         return new ContextMenuPage(driver);
     }
 
+    public WysiwygEditorPage clickWysiwygEditor() {
+        clickLink("WYSIWYG Editor");
+        return new WysiwygEditorPage(driver);
+    }
+
+    public FramePage clickFrame() {
+        clickLink("Frames");
+        return new FramePage(driver);
+    }
+
+    public NestedFramePage clickNestedFrame() {
+        clickLink("Nested Frames");
+        return new NestedFramePage(driver);
+    }
+
    //method helper
     private void clickLink(String linkText) {
         driver.findElement(By.linkText(linkText)).click();
